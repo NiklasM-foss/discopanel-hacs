@@ -9,5 +9,5 @@
   "issue_tracker": "https://github.com/niklasm-foss/discopanel-hacs/issues",
   "loggers": ["discopanel"],
   "requirements": [],
-  "version": "1.0.0"
+  "version": "1.0.1"
 }
