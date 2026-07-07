@@ -87,11 +87,27 @@
       "world_size": { "name": "World size" },
       "latency": { "name": "Latency" },
       "mc_version": { "name": "Minecraft version" },
-      "motd": { "name": "MOTD" }
+      "motd": { "name": "MOTD" },
+      "total_players": { "name": "Total players online" },
+      "memory_configured": { "name": "Configured memory" },
+      "max_players": { "name": "Max players" },
+      "disk_total": { "name": "Disk total" },
+      "port": { "name": "Port" },
+      "proxy_port": { "name": "Proxy port" },
+      "java_version": { "name": "Java version" },
+      "docker_image": { "name": "Docker image" },
+      "container_id": { "name": "Container ID" },
+      "last_started": { "name": "Last started" },
+      "created_at": { "name": "Created" },
+      "server_version": { "name": "Server version" },
+      "protocol_version": { "name": "Protocol version" },
+      "max_players_slp": { "name": "Max players (SLP)" }
     },
     "binary_sensor": {
       "running": { "name": "Running" },
-      "reachable": { "name": "Reachable" }
+      "reachable": { "name": "Reachable" },
+      "auto_start": { "name": "Auto start" },
+      "detached": { "name": "Detached" }
     },
     "switch": {
       "server": { "name": "Server" }

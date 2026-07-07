@@ -44,6 +44,21 @@ BINARY_SENSOR_DESCRIPTIONS: tuple[
         entity_category=EntityCategory.DIAGNOSTIC,
         value_fn=lambda server: bool(server.get("slpAvailable")),
     ),
+    DiscoPanelBinarySensorEntityDescription(
+        key="auto_start",
+        translation_key="auto_start",
+        icon="mdi:restart-alert",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        value_fn=lambda server: bool(server.get("autoStart")),
+    ),
+    DiscoPanelBinarySensorEntityDescription(
+        key="detached",
+        translation_key="detached",
+        icon="mdi:transit-connection-variant",
+        entity_category=EntityCategory.DIAGNOSTIC,
+        entity_registry_enabled_default=False,
+        value_fn=lambda server: bool(server.get("detached")),
+    ),
 )
 
 

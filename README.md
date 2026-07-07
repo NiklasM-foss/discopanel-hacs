@@ -35,16 +35,25 @@ Pro Minecraft-Server werden folgende Entitäten angelegt:
   - Spieler online (mit Attributen für maximale Spielerzahl und Spielerliste)
   - TPS (Ticks pro Sekunde)
   - CPU-Auslastung (in Prozent)
-  - RAM-Nutzung (in Bytes, Anzeige wahlweise in MB)
-  - Festplattennutzung (in Bytes)
-  - Weltgröße (in Bytes)
-  - Latenz (Server List Ping, in Millisekunden, Diagnose)
-  - Minecraft-Version (Diagnose)
-  - MOTD (Diagnose)
+  - RAM-Nutzung (MB, Anzeige in GB) und konfigurierter Speicher (Diagnose)
+  - Festplattennutzung und Festplatte gesamt (Bytes)
+  - Weltgröße (Bytes)
+  - Latenz (Server List Ping, Millisekunden, Diagnose)
+  - Minecraft-Version, MOTD (Diagnose)
+  - Diagnose-Details: max. Spieler, Port, Proxy-Port (mit Hostname als
+    Attribut), Java-Version, Docker-Image, Container-ID (mit Datenpfad),
+    zuletzt gestartet und erstellt (Zeitstempel), Server-Version, Protokoll-
+    und SLP-Werte
 - **Binary Sensoren:**
   - Läuft (device_class RUNNING, an wenn der Server läuft)
   - Erreichbar (device_class CONNECTIVITY, an wenn der Server per Server List
     Ping antwortet)
+  - Autostart und Abgekoppelt (Diagnose)
+
+Zusätzlich am gemeinsamen DiscoPanel-Hub-Gerät:
+
+- **Sensor** Spieler online gesamt (Summe über alle Server, mit Aufschlüsselung
+  pro Server sowie Anzahl laufender Server als Attribute)
 
 ## Installation
 

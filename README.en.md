@@ -33,16 +33,25 @@ The following entities are created per Minecraft server:
     list)
   - TPS (ticks per second)
   - CPU usage (percent)
-  - Memory usage (in MB, displayed as GB)
-  - Disk usage (bytes)
+  - Memory usage (MB, displayed as GB) and configured memory (diagnostic)
+  - Disk usage and disk total (bytes)
   - World size (bytes)
-  - Latency (Server List Ping, in milliseconds, diagnostic)
-  - Minecraft version (diagnostic)
-  - MOTD (diagnostic)
+  - Latency (Server List Ping, milliseconds, diagnostic)
+  - Minecraft version, MOTD (diagnostic)
+  - Diagnostic details: max players, port, proxy port (with hostname as an
+    attribute), Java version, Docker image, container ID (with data path),
+    last started and created (timestamps), server version, protocol and SLP
+    values
 - **Binary sensors:**
   - Running (device_class RUNNING, on when the server is running)
   - Reachable (device_class CONNECTIVITY, on when the server answers a Server
     List Ping)
+  - Auto start and Detached (diagnostic)
+
+Additionally, on the shared DiscoPanel hub device:
+
+- **Sensor** Total players online (sum across all servers, with a per-server
+  breakdown and the number of running servers as attributes)
 
 ## Installation
 
