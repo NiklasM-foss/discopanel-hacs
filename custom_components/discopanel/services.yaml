@@ -1,0 +1,27 @@
+send_command:
+  name: Send command
+  description: >-
+    Send a console command to a DiscoPanel-managed Minecraft server.
+  fields:
+    server_id:
+      name: Server ID
+      description: The DiscoPanel server id to target.
+      required: true
+      example: "abc123"
+      selector:
+        text:
+    command:
+      name: Command
+      description: The Minecraft console command to run (without a leading slash).
+      required: true
+      example: "say Hello from Home Assistant"
+      selector:
+        text:
+    silent:
+      name: Silent
+      description: >-
+        If true, suppress broadcasting the command output to the server console.
+      required: false
+      default: true
+      selector:
+        boolean:

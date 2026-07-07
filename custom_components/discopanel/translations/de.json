@@ -1,0 +1,103 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Mit DiscoPanel verbinden",
+        "description": "Gib die Verbindungsdaten deiner DiscoPanel-Instanz ein. Das API-Token kannst du in der DiscoPanel-Oberfläche unter API Tokens erstellen.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "ssl": "SSL verwenden (HTTPS)",
+          "verify_ssl": "SSL-Zertifikat prüfen",
+          "api_token": "API-Token"
+        }
+      },
+      "reauth_confirm": {
+        "title": "DiscoPanel neu authentifizieren",
+        "description": "Das API-Token für {host} ist nicht mehr gültig. Gib ein neues API-Token ein.",
+        "data": {
+          "api_token": "API-Token"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Verbindung fehlgeschlagen. Prüfe Host, Port und die SSL-Einstellungen.",
+      "invalid_auth": "Ungültige Anmeldung. Prüfe dein API-Token.",
+      "unknown": "Ein unerwarteter Fehler ist aufgetreten."
+    },
+    "abort": {
+      "already_configured": "Diese DiscoPanel-Instanz ist bereits eingerichtet.",
+      "reauth_successful": "Neuauthentifizierung erfolgreich."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "DiscoPanel-Optionen",
+        "data": {
+          "scan_interval": "Abfrageintervall (Sekunden)"
+        },
+        "data_description": {
+          "scan_interval": "Wie oft DiscoPanel nach Aktualisierungen abgefragt wird. Mindestens 10 Sekunden."
+        }
+      }
+    }
+  },
+  "services": {
+    "send_command": {
+      "name": "Befehl senden",
+      "description": "Sendet einen Konsolenbefehl an einen von DiscoPanel verwalteten Minecraft-Server.",
+      "fields": {
+        "server_id": {
+          "name": "Server-ID",
+          "description": "Die DiscoPanel-Server-ID, an die der Befehl gehen soll."
+        },
+        "command": {
+          "name": "Befehl",
+          "description": "Der Minecraft-Konsolenbefehl, der ausgeführt werden soll, ohne führenden Schrägstrich."
+        },
+        "silent": {
+          "name": "Still",
+          "description": "Wenn aktiviert, wird die Ausgabe des Befehls nicht in der Server-Konsole angezeigt."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "unspecified": "Unbekannt",
+          "creating": "Wird erstellt",
+          "starting": "Startet",
+          "running": "Läuft",
+          "stopping": "Stoppt",
+          "stopped": "Gestoppt",
+          "restarting": "Startet neu",
+          "error": "Fehler",
+          "unhealthy": "Fehlerhaft"
+        }
+      },
+      "players_online": { "name": "Spieler online" },
+      "tps": { "name": "TPS" },
+      "cpu_percent": { "name": "CPU-Auslastung" },
+      "memory_usage": { "name": "Speicherauslastung" },
+      "disk_usage": { "name": "Festplattenbelegung" },
+      "world_size": { "name": "Weltgröße" },
+      "latency": { "name": "Latenz" },
+      "mc_version": { "name": "Minecraft-Version" },
+      "motd": { "name": "MOTD" }
+    },
+    "binary_sensor": {
+      "running": { "name": "Läuft" },
+      "reachable": { "name": "Erreichbar" }
+    },
+    "switch": {
+      "server": { "name": "Server" }
+    },
+    "button": {
+      "restart": { "name": "Neustart" }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to DiscoPanel",
+        "description": "Enter the connection details for your DiscoPanel instance. The API token can be created in the DiscoPanel UI under API Tokens.",
+        "data": {
+          "host": "Host",
+          "port": "Port",
+          "ssl": "Use SSL (HTTPS)",
+          "verify_ssl": "Verify SSL certificate",
+          "api_token": "API token"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Re-authenticate DiscoPanel",
+        "description": "The API token for {host} is no longer valid. Enter a new API token.",
+        "data": {
+          "api_token": "API token"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Failed to connect. Check the host, port and SSL settings.",
+      "invalid_auth": "Invalid authentication. Check your API token.",
+      "unknown": "An unexpected error occurred."
+    },
+    "abort": {
+      "already_configured": "This DiscoPanel instance is already configured.",
+      "reauth_successful": "Re-authentication was successful."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "DiscoPanel options",
+        "data": {
+          "scan_interval": "Polling interval (seconds)"
+        },
+        "data_description": {
+          "scan_interval": "How often to poll DiscoPanel for updates. Minimum 10 seconds."
+        }
+      }
+    }
+  },
+  "services": {
+    "send_command": {
+      "name": "Send command",
+      "description": "Send a console command to a DiscoPanel-managed Minecraft server.",
+      "fields": {
+        "server_id": {
+          "name": "Server ID",
+          "description": "The DiscoPanel server id to target."
+        },
+        "command": {
+          "name": "Command",
+          "description": "The Minecraft console command to run, without a leading slash."
+        },
+        "silent": {
+          "name": "Silent",
+          "description": "If enabled, suppress broadcasting the command output to the server console."
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "status": {
+        "name": "Status",
+        "state": {
+          "unspecified": "Unknown",
+          "creating": "Creating",
+          "starting": "Starting",
+          "running": "Running",
+          "stopping": "Stopping",
+          "stopped": "Stopped",
+          "restarting": "Restarting",
+          "error": "Error",
+          "unhealthy": "Unhealthy"
+        }
+      },
+      "players_online": { "name": "Players online" },
+      "tps": { "name": "TPS" },
+      "cpu_percent": { "name": "CPU usage" },
+      "memory_usage": { "name": "Memory usage" },
+      "disk_usage": { "name": "Disk usage" },
+      "world_size": { "name": "World size" },
+      "latency": { "name": "Latency" },
+      "mc_version": { "name": "Minecraft version" },
+      "motd": { "name": "MOTD" }
+    },
+    "binary_sensor": {
+      "running": { "name": "Running" },
+      "reachable": { "name": "Reachable" }
+    },
+    "switch": {
+      "server": { "name": "Server" }
+    },
+    "button": {
+      "restart": { "name": "Restart" }
+    }
+  }
+}
