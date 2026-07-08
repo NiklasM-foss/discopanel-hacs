@@ -29,6 +29,3 @@ jobs:
         uses: hacs/action@main
         with:
           category: integration
-          # "brands" only applies to the official default store; a custom
-          # repository does not require an entry in home-assistant/brands.
-          ignore: brands
