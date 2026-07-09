@@ -9,6 +9,7 @@ from typing import Any
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.core import HomeAssistant
 from homeassistant.exceptions import ConfigEntryAuthFailed
+from homeassistant.helpers import device_registry as dr
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 
 from .api import (
@@ -73,4 +74,35 @@ class DiscoPanelDataUpdateCoordinator(DataUpdateCoordinator[dict[str, dict[str, 
             server_id = server.get("id")
             if isinstance(server_id, str) and server_id:
                 result[server_id] = server
+
+        self._async_purge_stale_devices(set(result))
         return result
+
+    def _async_purge_stale_devices(self, live_server_ids: set[str]) -> None:
+        """Remove HA devices for servers that no longer exist in DiscoPanel.
+
+        When a server is deleted in the panel it disappears from the API, but
+        its device (and entities) would otherwise linger in Home Assistant.
+        The hub device (identified by the entry id) is always kept.
+        """
+        device_registry = dr.async_get(self.hass)
+        entry_id = self.entry.entry_id
+        for device in dr.async_entries_for_config_entry(device_registry, entry_id):
+            server_id = next(
+                (
+                    identifier
+                    for domain, identifier in device.identifiers
+                    if domain == DOMAIN and identifier != entry_id
+                ),
+                None,
+            )
+            # Skip the hub device (no per-server identifier) and any device
+            # whose server is still present.
+            if server_id is None or server_id in live_server_ids:
+                continue
+            _LOGGER.debug(
+                "Removing device for deleted DiscoPanel server %s", server_id
+            )
+            device_registry.async_update_device(
+                device.id, remove_config_entry_id=entry_id
+            )
